@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>山行記録 - 立川山岳会</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- MarkdownをHTMLに変換する軽量ライブラリ -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">立川山岳会</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="post.html?file=about.md">入会案内</a>
+        <a href="post.html?file=list/list.md">山行リスト</a>
+        <a href="posts.html">山行記録</a>
+        <a href="post.html?file=freeclimbing.md">フリークライミング</a>
+        <a href="post.html?file=documents.md">各種文書</a>
+        <a href="post.html?file=links.md">リンク</a>
+      </nav>
+      <!-- 💡 背景モード切替ボタンを追加 -->
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="テーマ切り替え">
+        <span class="theme-icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="markdown-body" id="content">
+      <p>読み込み中...</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; Tachikawa Alpine Club. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

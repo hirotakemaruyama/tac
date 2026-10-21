@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>山行記録一覧 - 立川山岳会</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">立川山岳会</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="post.html?file=about.md">入会案内</a>
+        <a href="post.html?file=list/list.md">山行リスト</a>
+        <a href="posts.html">山行記録</a>
+        <a href="post.html?file=freeclimbing.md">フリークライミング</a>
+        <a href="post.html?file=documents.md">各種文書</a>
+        <a href="post.html?file=links.md">リンク</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="テーマ切り替え">
+        <span class="theme-icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 全件一覧メインエリア -->
+  <main class="container" style="padding-top: 40px; padding-bottom: 40px;">
+    <h2 class="section-title">山行記録 一覧</h2>
+    <div class="grid" id="all-posts-list">
+      <!-- JavaScriptでposts.jsonから全件自動挿入されます -->
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <div class="container">
+      <p>&copy; Tachikawa Alpine Club. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

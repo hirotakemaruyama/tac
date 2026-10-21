@@ -1,0 +1,31 @@
+name: Update Posts JSON
+
+on:
+  push:
+    paths:
+      - 'content/posts/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Generate posts.json
+        run: node scripts/generate-posts.js
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/posts/posts.json
+          git diff --quiet && git diff --cached --quiet || (git commit -m "Auto-update posts.json" && git push)

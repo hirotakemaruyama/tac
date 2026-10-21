@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>立川山岳会 - Official Site</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!--HOME画面上部-->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">立川山岳会</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="post.html?file=about.md">入会案内</a>
+        <a href="post.html?file=list/list.md">山行リスト</a>
+        <a href="posts.html">山行記録</a>
+        <a href="post.html?file=freeclimbing.md">フリークライミング</a>
+        <a href="post.html?file=documents.md">各種文書</a>
+        <a href="post.html?file=links.md">リンク</a>
+      </nav>
+      <!-- 💡 背景モード切替ボタンを追加 -->
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="テーマ切り替え">
+        <span class="theme-icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero-section" style="background-image: url('images/top01.jpg');">
+    <div class="container">
+      <h1>Tachikawa Alpine Club</h1>
+      <p>四季折々の山々へ。安全で魅力的な登攀を目指す山岳会です。</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <h2 class="section-title">最新の山行記録</h2>
+    <div class="grid" id="post-list">
+      <!-- ここは空にしておく（JavaScriptが自動でカードを全件挿入します） -->
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; Tachikawa Alpine Club. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
