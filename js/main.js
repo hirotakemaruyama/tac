@@ -42,14 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('light-mode');
       const isLight = document.body.classList.contains('light-mode');
-      localStorage.setItem('theme', 'light'); // キー保存の修正
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
     });
   }
 });
 
 
-// --- 3. Home画面（最新最大6件） & 山行記録一覧（全件）のカード生成 ---
+// --- 3. Home画面 & 山行記録一覧のカード生成（2段コンパクト構成） ---
 document.addEventListener('DOMContentLoaded', () => {
   const homeContainer = document.getElementById('post-list');
   const allContainer = document.getElementById('all-posts-list');
@@ -62,29 +61,23 @@ document.addEventListener('DOMContentLoaded', () => {
       return response.json();
     })
     .then(posts => {
-      // 日付の新しい順（降順）にソート
       posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-      // 共通のカードHTML生成テンプレート
+      // 共通のカードHTML生成テンプレート（日付とタイトルの2段のみ）
       const createCardHtml = (post) => `
         <a href="post.html?file=${post.file}" class="card">
-          ${post.thumbnail ? `<div class="card-image"><img src="${post.thumbnail}" alt="${post.title}"></div>` : ''}
           <div class="card-content">
-            <div class="card-tag">${post.tag}</div>
-            <h3 class="card-title">${post.title}</h3>
             <p class="card-date">${post.date.replace(/-/g, '.')}</p>
-            <p class="card-desc">${post.summary}</p>
+            <h3 class="card-title">${post.title}</h3>
           </div>
         </a>
       `;
 
-      // 1. Home画面用（最新最大6件）
       if (homeContainer) {
         const latestPosts = posts.slice(0, 6);
         homeContainer.innerHTML = latestPosts.map(createCardHtml).join('');
       }
 
-      // 2. 山行記録一覧ページ用（全件表示）
       if (allContainer) {
         allContainer.innerHTML = posts.map(createCardHtml).join('');
       }
@@ -95,8 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (allContainer) allContainer.innerHTML = '<p>記事を読み込めませんでした。</p>';
     });
 });
-
-
 
 
 // --- 4. ハンバーガーメニュー開閉機能 ---
@@ -110,5 +101,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
-
