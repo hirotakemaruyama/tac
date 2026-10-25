@@ -11,24 +11,31 @@
     <div class="container nav-container">
       <a href="index.html" class="logo">立川山岳会</a>
       
+      <!-- ▼ 2行構成のメニュー -->
       <div class="nav-links">
-        <nav>
-          <a href="index.html">Home</a>
-          <a href="post.html?file=about.md">入会案内</a>
-          <a href="post.html?file=list/list.md">山行リスト</a>
-          <a href="posts.html">山行記録</a>
-          <a href="post.html?file=freeclimbing.md">フリークライミング</a>
-          <a href="post.html?file=documents.md">各種文書</a>
-          <a href="post.html?file=links.md">リンク</a>
-        </nav>
+        <div class="nav-menu">
+          <div class="nav-row">
+            <a href="index.html">Home</a>
+            <a href="post.html?file=about.md">入会案内</a>
+            <a href="post.html?file=list/list.md">山行リスト</a>
+            <a href="posts.html">山行記録</a>
+          </div>
+          <div class="nav-row">
+            <a href="post.html?file=freeclimbing.md">フリークライミング</a>
+            <a href="post.html?file=documents.md">各種文書</a>
+            <a href="post.html?file=links.md">リンク</a>
+          </div>
+        </div>
       </div>
 
+      <!-- ▼ スマホ用ハンバーガーボタン -->
       <button class="hamburger-btn" aria-label="メニューを開閉">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
+      <!-- 💡 背景モード切替ボタン -->
       <button id="theme-toggle" class="theme-toggle-btn" aria-label="テーマ切り替え">
         <span class="theme-icon"></span>
       </button>
