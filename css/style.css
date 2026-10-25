@@ -131,12 +131,12 @@ body {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
-  font-size: 0.85rem; /* 全体のフォントを小さめに調整 */
+  font-size: 0.85rem;
 }
 
 #content th,
 #content td {
-  padding: 5px 12px; /* 上下の余白（高さ方向）を狭くし、左右は適度な幅に */
+  padding: 5px 12px;
   border: 1px solid var(--border-color);
   text-align: left;
 }
@@ -241,7 +241,8 @@ body.light-mode .theme-icon::before {
   color: var(--accent);
 }
 
-@media (min-width: 850px) {
+/* 画面幅が768px以上の場合：PC用1行メニューを表示（折り返し禁止） */
+@media (min-width: 768px) {
   .nav-sp {
     display: none;
   }
@@ -249,13 +250,14 @@ body.light-mode .theme-icon::before {
   .nav-pc {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.1rem; /* 項目間の余白を適切に調整 */
+    flex-wrap: nowrap; /* 絶対に折り返さない */
   }
 
   .nav-pc a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.95rem; /* PC用通常サイズ */
+    font-size: 0.9rem; /* PC用通常サイズ */
     white-space: nowrap;
   }
 
