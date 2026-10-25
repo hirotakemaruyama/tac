@@ -241,7 +241,7 @@ body.light-mode .theme-icon::before {
   color: var(--accent);
 }
 
-/* 画面幅が768px以上の場合：PC用1行メニューを表示（折り返し禁止） */
+/* 画面幅が768px以上の場合：PC用1行メニューを表示 */
 @media (min-width: 768px) {
   .nav-sp {
     display: none;
@@ -250,14 +250,15 @@ body.light-mode .theme-icon::before {
   .nav-pc {
     display: flex;
     align-items: center;
-    gap: 1.1rem; /* 項目間の余白を適切に調整 */
+    gap: 0.6rem; /* 項目間の余白を少し狭くして幅を節約する（元は1.1rem） */
     flex-wrap: nowrap; /* 絶対に折り返さない */
+    flex-shrink: 1; /* スペースが狭くなった時に縮小を許可する */
   }
 
   .nav-pc a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.9rem; /* PC用通常サイズ */
+    font-size: 0.85rem; /* フォントサイズを微調整して収まりやすくする（元は0.9rem） */
     white-space: nowrap;
   }
 
