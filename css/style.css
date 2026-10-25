@@ -80,9 +80,26 @@ body {
   white-space: nowrap; 
 }
 
-/* Heroエリア */
-.hero { padding: 4rem 0; text-align: center; border-bottom: 1px solid var(--border-color); }
-.hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--accent); }
+/* Heroエリア（高さ1.7倍） */
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 136px 0;
+  color: #fff;
+  text-align: center;
+}
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}
 
 /* カードグリッド（2段コンパクト構成） */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
@@ -108,18 +125,18 @@ body {
 .markdown-body code { background: var(--card-bg); padding: 0.2rem 0.4rem; border-radius: 4px; }
 
 /* ==========================================
-   3. テーブル（表）デザイン
+   3. テーブル（表）デザイン（フォント小・上下余白狭く）
    ========================================== */
 #content table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
-  font-size: 0.95rem;
+  font-size: 0.85rem; /* 全体のフォントを小さめに調整 */
 }
 
 #content th,
 #content td {
-  padding: 10px 14px;
+  padding: 5px 12px; /* 上下の余白（高さ方向）を狭くし、左右は適度な幅に */
   border: 1px solid var(--border-color);
   text-align: left;
 }
@@ -193,35 +210,17 @@ body.light-mode .theme-icon::before {
   100% { transform: rotate(360deg); }
 }
 
-.hero-section {
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  padding: 136px 0;
-  color: #fff;
-  text-align: center;
-}
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-.hero-section .container {
-  position: relative;
-  z-index: 2;
-}
-
 /* ==========================================
-   5. ナビゲーションメニューのレスポンシブ切替（自動）
+   5. ナビゲーションメニューのレスポンシブ切替（PC: 1行 ／ スマホ: 2行）
    ========================================== */
+.nav-pc {
+  display: none;
+}
 
-/* デフォルト（画面幅が狭い場合）：常時2行表示 ＆ フォント小さめ */
-.nav-menu {
+.nav-sp {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
   align-items: center;
 }
 
@@ -234,7 +233,7 @@ body.light-mode .theme-icon::before {
 .nav-row a {
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 0.75rem; /* 狭い画面用の小さめフォント */
+  font-size: 0.75rem; /* スマホ用小さめフォント */
   white-space: nowrap;
 }
 
@@ -242,20 +241,25 @@ body.light-mode .theme-icon::before {
   color: var(--accent);
 }
 
-/* 画面幅が広い場合（850px以上）：常時1行表示 ＆ 過去の通常フォントサイズ */
 @media (min-width: 850px) {
-  .nav-menu {
-    flex-direction: row;
+  .nav-sp {
+    display: none;
+  }
+
+  .nav-pc {
+    display: flex;
     align-items: center;
     gap: 1.5rem;
   }
 
-  /* 2行の行ボックスを非表示扱いにして中のリンクを直接1行に並べる */
-  .nav-row {
-    display: contents;
+  .nav-pc a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem; /* PC用通常サイズ */
+    white-space: nowrap;
   }
 
-  .nav-row a {
-    font-size: 0.95rem; /* 過去の通常サイズ */
+  .nav-pc a:hover {
+    color: var(--accent);
   }
 }
