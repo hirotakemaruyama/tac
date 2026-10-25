@@ -87,16 +87,3 @@ document.addEventListener('DOMContentLoaded', () => {
       if (allContainer) allContainer.innerHTML = '<p>記事を読み込めませんでした。</p>';
     });
 });
-
-
-// --- 4. ハンバーガーメニュー開閉機能 ---
-document.addEventListener('DOMContentLoaded', () => {
-  const hamburgerBtn = document.querySelector('.hamburger-btn');
-  const navLinks = document.querySelector('.nav-links');
-
-  if (hamburgerBtn && navLinks) {
-    hamburgerBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-  }
-});
