@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(posts => {
       posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-      // 共通のカードHTML生成テンプレート（日付とタイトルの2段のみ）
       const createCardHtml = (post) => `
         <a href="post.html?file=${post.file}" class="card">
           <div class="card-content">
