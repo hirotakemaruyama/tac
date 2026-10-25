@@ -214,72 +214,48 @@ body.light-mode .theme-icon::before {
 }
 
 /* ==========================================
-   5. メニューのレスポンシブ切替（幅広：1行 ／ 幅狭：2行・小さめ）
+   5. ナビゲーションメニューのレスポンシブ切替（自動）
    ========================================== */
 
-/* 画面幅が狭い場合（950px以下）：常時2行表示 ＆ フォント小さめ */
-@media (max-width: 950px) {
-  body {
-    font-size: 14px;
-  }
-
-  .nav-links {
-    display: block;
-  }
-
-  .nav-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    align-items: center;
-  }
-
-  .nav-row {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    flex-wrap: nowrap;
-  }
-
-  .nav-row a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.75rem; /* 小さめ */
-    white-space: nowrap;
-  }
-
-  .nav-row a:hover {
-    color: var(--accent);
-  }
+/* デフォルト（画面幅が狭い場合）：常時2行表示 ＆ フォント小さめ */
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
 }
 
-/* 画面幅が広い場合（951px以上）：常時1行表示 ＆ 過去の通常フォントサイズ */
-@media (min-width: 951px) {
-  .nav-links {
-    display: block;
-  }
+.nav-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
 
+.nav-row a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.75rem; /* 狭い画面用の小さめフォント */
+  white-space: nowrap;
+}
+
+.nav-row a:hover {
+  color: var(--accent);
+}
+
+/* 画面幅が広い場合（850px以上）：常時1行表示 ＆ 過去の通常フォントサイズ */
+@media (min-width: 850px) {
   .nav-menu {
-    display: flex;
     flex-direction: row;
     align-items: center;
     gap: 1.5rem;
   }
 
-  /* 行の概念を解除してすべてのリンクを1行に並べる */
+  /* 2行の行ボックスを非表示扱いにして中のリンクを直接1行に並べる */
   .nav-row {
-    display: contents; 
+    display: contents;
   }
 
   .nav-row a {
-    color: var(--text-muted);
-    text-decoration: none;
     font-size: 0.95rem; /* 過去の通常サイズ */
-    white-space: nowrap;
-    margin: 0;
-  }
-
-  .nav-row a:hover {
-    color: var(--accent);
   }
 }
