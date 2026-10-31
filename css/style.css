@@ -211,14 +211,16 @@ body.light-mode .theme-icon::before {
 }
 
 /* ==========================================
-   5. ナビゲーションメニューのレスポンシブ切替（PC: 1行 ／ スマホ: 2行）
+   5. ナビゲーションメニューの完全切替（PC: 1行 ／ スマホ: 2段）
    ========================================== */
+
+/* デフォルト（スマホ表示用）：常に2段表示 */
 .nav-pc {
-  display: none;
+  display: none !important;
 }
 
 .nav-sp {
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   gap: 2px;
   align-items: center;
@@ -241,23 +243,23 @@ body.light-mode .theme-icon::before {
   color: var(--accent);
 }
 
-/* 画面幅が768px以上（PC表示）の場合：1行表示＆フォントを大きく */
+/* 画面幅が768px以上になった瞬間に「完全に1行＆大きめフォント」へ切り替え */
 @media (min-width: 768px) {
   .nav-sp {
-    display: none; /* スマホ用メニューを非表示 */
+    display: none !important; /* スマホ用の2段メニューを完全に消す */
   }
 
   .nav-pc {
-    display: flex;
+    display: flex !important; /* PC用の1行メニューを完全に出す */
     align-items: center;
     gap: 1.1rem;       /* 項目間の余白 */
-    flex-wrap: nowrap; /* 1行から絶対に折り返さない */
+    flex-wrap: nowrap; /* 途中で勝手に折り返させない */
   }
 
   .nav-pc a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 1rem;   /* PC用：フォントサイズを大きく調整 */
+    font-size: 1rem;   /* PC用：フォントを大きく表示 */
     white-space: nowrap;
   }
 
