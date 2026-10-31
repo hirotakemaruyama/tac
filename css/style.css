@@ -240,7 +240,9 @@ body.light-mode .theme-icon::before {
   gap: 0.75rem;
 }
 
+/* リンクと訪問済みリンクの色を周囲の文字色に完全統一する */
 .nav-row a,
+.nav-row a:link,
 .nav-row a:visited {
   color: var(--text-muted) !important;
   text-decoration: none;
@@ -261,12 +263,14 @@ body.light-mode .theme-icon::before {
   .nav-pc {
     display: flex !important;
     align-items: center;
-    gap: 1rem;             /* 項目間の余白 */
+    gap: 1.1rem;             /* 項目間の余白 */
     flex-wrap: nowrap !important; /* 途中の折り返しを完全に禁止 */
     width: auto !important;
   }
 
+  /* PC用：リンクと訪問済みリンクの色を周囲の文字色に完全統一する */
   .nav-pc a,
+  .nav-pc a:link,
   .nav-pc a:visited {
     color: var(--text-muted) !important;
     text-decoration: none;
