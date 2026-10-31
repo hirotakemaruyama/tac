@@ -80,15 +80,22 @@ body {
   white-space: nowrap; 
 }
 
-/* Heroエリア（高さ1.7倍） */
+/* Heroエリア（4:3規格の範囲に調整） */
 .hero-section {
   background-size: cover;
   background-position: center;
   position: relative;
-  padding: 136px 0;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* アスペクト比を4:3に指定 */
+  max-height: 600px;   /* PCなどで大きくなりすぎるのを防ぐ最大高さの制限（必要に応じて調整） */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #fff;
   text-align: center;
+  padding: 0;          /* 固定の上下パディングをなくし、aspect-ratioで高さを制御 */
 }
+
 .hero-section::before {
   content: '';
   position: absolute;
@@ -96,6 +103,7 @@ body {
   background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
+
 .hero-section .container {
   position: relative;
   z-index: 2;
