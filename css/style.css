@@ -219,7 +219,7 @@ body.light-mode .theme-icon::before {
 }
 
 /* ==========================================
-   5. ナビゲーションメニューの完全切替（PC: 1行 ／ スマホ: 2段）
+   5. ナビゲーションメニューの完全切替（PC: 1行固定 ／ スマホ: 2段固定）
    ========================================== */
 
 /* スマホ表示用：常に2段表示 */
@@ -242,17 +242,17 @@ body.light-mode .theme-icon::before {
 
 .nav-row a,
 .nav-row a:visited {
-  color: var(--text-muted) !important; /* 周囲と同じ色に固定し、訪問済みで紫になるのを防ぐ */
+  color: var(--text-muted) !important;
   text-decoration: none;
   font-size: 0.75rem; /* スマホ用小さめフォント */
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 
 .nav-row a:hover {
   color: var(--accent) !important;
 }
 
-/* 画面幅が768px以上になった瞬間に「完全に1行＆大きめフォント」へ切り替え */
+/* 画面幅768px以上：完全に1行で固定し、途中で絶対に折り返さない */
 @media (min-width: 768px) {
   .nav-sp {
     display: none !important;
@@ -261,16 +261,17 @@ body.light-mode .theme-icon::before {
   .nav-pc {
     display: flex !important;
     align-items: center;
-    gap: 1.1rem;       /* 項目間の余白 */
-    flex-wrap: nowrap; /* 途中で勝手に折り返させない */
+    gap: 1rem;             /* 項目間の余白 */
+    flex-wrap: nowrap !important; /* 途中の折り返しを完全に禁止 */
+    width: auto !important;
   }
 
   .nav-pc a,
   .nav-pc a:visited {
-    color: var(--text-muted) !important; /* 周囲の文字色と統一し、紫色に変色させない */
+    color: var(--text-muted) !important;
     text-decoration: none;
-    font-size: 1rem;   /* PC用：フォントを大きく表示 */
-    white-space: nowrap;
+    font-size: 1rem;       /* PC用：大きく表示 */
+    white-space: nowrap !important; /* 文字の途中改行を禁止 */
   }
 
   .nav-pc a:hover {
