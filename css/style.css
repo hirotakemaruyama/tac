@@ -241,24 +241,19 @@ body.light-mode .theme-icon::before {
   color: var(--accent);
 }
 
-/* 画面幅が768px以上の場合：PC用1行メニューを表示 */
+/* 画面幅が768px以上（PC表示）の場合のスタイル */
 @media (min-width: 768px) {
-  .nav-sp {
-    display: none;
-  }
-
-  .nav-pc {
+  .nav-menu {
     display: flex;
     align-items: center;
-    gap: 0.6rem; /* 項目間の余白を少し狭くして幅を節約する（元は1.1rem） */
-    flex-wrap: nowrap; /* 絶対に折り返さない */
-    flex-shrink: 1; /* スペースが狭くなった時に縮小を許可する */
+    gap: 1.2rem;       /* 項目間の余白 */
+    flex-wrap: nowrap; /* 1行から折り返さない */
   }
 
-  .nav-pc a {
+.nav-menu a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.85rem; /* フォントサイズを微調整して収まりやすくする（元は0.9rem） */
+    font-size: 0.95rem;  /* フォントを大きく調整 */
     white-space: nowrap;
   }
 
