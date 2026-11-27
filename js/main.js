@@ -16,9 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!response.ok) throw new Error('File not found');
       return response.text();
     })
+
     .then(markdownText => {
-      contentEl.innerHTML = marked.parse(markdownText);
+      const normalizedMarkdown = markdownText.replaceAll('../images/', 'images/');
+      contentEl.innerHTML = marked.parse(normalizedMarkdown);
     })
+
+  
     .catch(err => {
       contentEl.innerHTML = `<p>記事の読み込みに失敗しました (${err.message})。</p>`;
     });
